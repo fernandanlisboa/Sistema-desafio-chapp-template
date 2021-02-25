@@ -1,0 +1,38 @@
+@import "src/app/styles/colors";
+@import "src/app/styles/variables";
+@import "src/app/styles/font";
+
+.project-stat {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin: 16px 8px;
+
+  &__item {
+    height: 208px;
+    margin: 16px;
+    width: 100%;
+    box-shadow: 0 3px 11px 0 $shadow-white, 0 3px 3px -2px $shadow-grey, 0 1px 8px 0 $shadow-dark-grey;
+  }
+
+  &__title {
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__title-text {
+    font-weight: $fw-lighter;
+    font-size: $fs-medium;
+    color: $dark-grey;
+    margin: 0;
+  }
+
+}
+
+.project-stat-content {
+  // padding: 8px;
+  width: 100%;
+
+}

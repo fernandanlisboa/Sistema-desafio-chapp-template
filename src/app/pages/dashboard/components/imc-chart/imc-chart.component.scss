@@ -1,0 +1,54 @@
+@import "src/app/styles/colors";
+@import "src/app/styles/variables";
+@import "src/app/styles/font";
+
+.project-stat {
+  display: flex;
+  justify-content: space-around;
+  // width: calc(100% - 16px);
+  width: 100%;
+  margin: 16px 8px;
+
+  &__item {
+    height: 208px;
+    margin: 16px;
+    width: 100%;
+    box-shadow: 0 3px 11px 0 $shadow-white, 0 3px 3px -2px $shadow-grey, 0 1px 8px 0 $shadow-dark-grey;
+
+    // @media (min-width: $small) and (max-width: $large) {
+    //   width: 41.4%;
+    // }
+
+    // @media (min-width: $large) and (max-width: $normal) {
+    //   width: 43.6%;
+    // }
+  }
+
+  &__title {
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__title-text {
+    font-weight: $fw-lighter;
+    font-size: $fs-medium;
+    color: $dark-grey;
+    margin: 0;
+  }
+
+  // @media (min-width: $small) and (max-width: $normal) {
+  //   justify-content: start;
+  // }
+
+  // @media (max-width: $normal) {
+  //   flex-wrap: wrap;
+  // }
+}
+
+.project-stat-content {
+  // padding: 8px;
+  width: 100%;
+
+}
