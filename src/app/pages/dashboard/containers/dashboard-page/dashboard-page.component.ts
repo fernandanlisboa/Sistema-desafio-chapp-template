@@ -27,12 +27,12 @@ export class DashboardPageComponent {
   public projectsStatsData$: Observable<ProjectStatData>;
 
   constructor(private service: DashboardService) {
-    this.dailyLineChartData$ = this.service.loadDailyLineChartData();
-    this.performanceChartData$ = this.service.loadPerformanceChartData();
-    this.revenueChartData$ = this.service.loadRevenueChartData();
-    this.serverChartData$ = this.service.loadServerChartData();
-    this.supportRequestData$ = this.service.loadSupportRequestData();
-    this.visitsChartData$ = this.service.loadVisitsChartData();
+    // this.dailyLineChartData$ = this.service.loadDailyLineChartData();
+    // this.performanceChartData$ = this.service.loadPerformanceChartData();
+    // this.revenueChartData$ = this.service.loadRevenueChartData();
+    // this.serverChartData$ = this.service.loadServerChartData();
+    // this.supportRequestData$ = this.service.loadSupportRequestData();
+    // this.visitsChartData$ = this.service.loadVisitsChartData();
     // this.projectsStatsData$ = this.service.loadProjectsStatsData();
   }
 }

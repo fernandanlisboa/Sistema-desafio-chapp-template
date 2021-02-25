@@ -5,12 +5,11 @@
 .project-stat {
   display: flex;
   justify-content: space-around;
-  // width: calc(100% - 16px);
-  width: 100%;
+  width: calc(100% - 16px);
   margin: 16px 8px;
 
   &__item {
-    height: 208px;
+    height: 300px;
     margin: 16px;
     width: 100%;
     box-shadow: 0 3px 11px 0 $shadow-white, 0 3px 3px -2px $shadow-grey, 0 1px 8px 0 $shadow-dark-grey;

@@ -34,6 +34,7 @@ export class AuthService {
     return this.http.post<any>('http://localhost:3000/api/admins/logout', null, httpOptions)
   }
 
+  //parte do template
   public getUser(): Observable<User> {
     return of({
       name: 'John',

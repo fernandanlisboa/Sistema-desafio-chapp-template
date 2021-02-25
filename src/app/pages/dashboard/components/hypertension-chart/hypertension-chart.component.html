@@ -3,7 +3,7 @@
     <mat-card-title class="project-stat__title">
       <h5 class="project-stat__title-text">Hipertensão</h5>
 
-      <mat-select
+      <!-- <mat-select
       class="chart-select"
       [(ngModel)]="selectedMatSelectValue"
       (selectionChange)="changedMatSelectionValue()"
@@ -11,10 +11,10 @@
       <mat-option [value]="matSelectFields.daily">Daily</mat-option>
       <mat-option [value]="matSelectFields.weekly">Weekly</mat-option>
       <mat-option [value]="matSelectFields.monthly">Monthly</mat-option>
-    </mat-select>
+    </mat-select> -->
     </mat-card-title>
     <mat-card-content class="project-stat-content">
-      <apx-chart [series]="series" [chart]="chart" [title]="title"></apx-chart>
+      <apx-chart [series]="series" [chart]="chart" ></apx-chart>
     </mat-card-content>
   </mat-card>
 </div>
