@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { MatTableModule } from '@angular/material/table';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { TrendModule } from 'ngx-trend';
+import {AppRoutingModule} from '../../app-routing.module'
+
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
@@ -12,6 +14,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort'
+
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { FormsModule } from '@angular/forms';
 
@@ -30,6 +35,7 @@ import { DashboardService } from './services';
 import { HypertensionChartComponent } from './components/hypertension-chart/hypertension-chart.component';
 import { ImcChartComponent } from './components/imc-chart/imc-chart.component';
 import { UseChartComponent } from './components/use-chart/use-chart.component';
+import { TabelaAvaliacoesComponent } from './components/tabela-avaliacoes/tabela-avaliacoes.component';
 
 
 @NgModule({
@@ -43,10 +49,12 @@ import { UseChartComponent } from './components/use-chart/use-chart.component';
     SupportRequestsComponent,
     HypertensionChartComponent,
     ImcChartComponent,
-    UseChartComponent
+    UseChartComponent,
+    TabelaAvaliacoesComponent
     // ProjectStatChartComponent
   ],
   imports: [
+    AppRoutingModule,
     CommonModule,
     MatTableModule,
     NgxEchartsModule,
@@ -60,6 +68,8 @@ import { UseChartComponent } from './components/use-chart/use-chart.component';
     MatGridListModule,
     MatSelectModule,
     MatInputModule,
+    MatPaginatorModule,
+    MatSortModule,
     NgApexchartsModule,
     FormsModule,
     SharedModule

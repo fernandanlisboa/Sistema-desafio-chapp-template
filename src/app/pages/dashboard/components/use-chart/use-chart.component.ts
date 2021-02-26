@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import {
   ApexAxisChartSeries,
   ApexChart,
@@ -24,7 +24,7 @@ export interface Resumo {
   templateUrl: './use-chart.component.html',
   styleUrls: ['./use-chart.component.scss'],
 })
-export class UseChartComponent implements OnInit {
+export class UseChartComponent implements OnInit{
   public matSelectFields: typeof matSelectedFields = matSelectedFields;
   public selectedMatSelectValue = matSelectedFields.monthly;
 
@@ -36,15 +36,12 @@ export class UseChartComponent implements OnInit {
 
   resumoCadastros: Resumo;
   resumoAvaliacoes: Resumo;
-  show = false
 
   constructor(private service: DashboardService) {}
 
   ngOnInit(): void {
-    console.log(this.show)
     this.getResumoAvaliacoesRealizadas();
     this.getResumoNovosCadastros();
-    
   }
 
   private async getResumoNovosCadastros(): Promise<void> {
@@ -67,7 +64,7 @@ export class UseChartComponent implements OnInit {
   }
 
   private async getResumoAvaliacoesRealizadas(): Promise<void> {
-    await this.service.getResumoAvaliaçõesRealizadas().subscribe(
+    await this.service.getResumoAvaliacoesRealizadas().subscribe(
       (res) => {
         this.resumoAvaliacoes = res[0];
       },
@@ -96,8 +93,6 @@ export class UseChartComponent implements OnInit {
         },
       },
     };
-    this.show = true
-    console.log(this.show)
   }
 
   public changedMatSelectionValue() {

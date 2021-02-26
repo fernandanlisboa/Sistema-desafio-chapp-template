@@ -1,9 +1,8 @@
 export interface SupportRequestData {
-  name: string;
+  id: string;
   email: string;
-  product: string;
-  price: string;
-  date: string;
-  city: string;
-  status: string;
+  dataNascimento: string;
+  altura: number;
+  peso: number;
+  imc: any;
 }
