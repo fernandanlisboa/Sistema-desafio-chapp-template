@@ -17,12 +17,19 @@
       [(ngModel)]="selectedMatSelectValue"
       (selectionChange)="changedMatSelectionValue()"
     >
-      <mat-option [value]="matSelectFields.daily">Daily</mat-option>
-      <mat-option [value]="matSelectFields.weekly">Weekly</mat-option>
-      <mat-option [value]="matSelectFields.monthly">Monthly</mat-option>
+      <mat-option [value]="matSelectFields.daily">Diário</mat-option>
+      <!-- <mat-option [value]="matSelectFields.weekly">Semanal</mat-option> -->
+      <mat-option [value]="matSelectFields.monthly">Mensal</mat-option>
     </mat-select>
   </mat-card-title>
   <mat-card-content class="chart__content">
-    <apx-chart [series]="series" [chart]="chart" [title]="title"></apx-chart>
+    <apx-chart
+      *ngIf = 'series'
+      [series]="series"
+      [chart]="chart"
+      [xaxis]="xaxis"
+      [colors]="chartColors"
+      [dataLabels]="dataLabels"
+    ></apx-chart>
   </mat-card-content>
 </mat-card>

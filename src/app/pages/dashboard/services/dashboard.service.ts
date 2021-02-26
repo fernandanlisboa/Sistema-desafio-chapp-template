@@ -24,4 +24,12 @@ export class DashboardService {
     return this.http.get<any>('http://localhost:3000/api/avaliacaos/resumo/hipertensao', httpOptions)
   }
 
+  public getResumoNovosCadastros(): Observable<any> {
+    return this.http.get<any>('http://localhost:3000/api/colaboradors/num/cadastros', httpOptions)
+  }
+
+  public getResumoAvaliaçõesRealizadas(): Observable<any> {
+    return this.http.get<any>('http://localhost:3000/api/avaliacaos/num/realizadas', httpOptions)
+  }
+
 }

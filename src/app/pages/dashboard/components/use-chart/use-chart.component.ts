@@ -1,40 +1,119 @@
 import { Component, OnInit } from '@angular/core';
-import { ApexAxisChartSeries, ApexChart, ApexTitleSubtitle } from 'ng-apexcharts';
+import {
+  ApexAxisChartSeries,
+  ApexChart,
+  ApexDataLabels,
+  ApexXAxis,
+} from 'ng-apexcharts';
+import { colors } from 'src/app/consts';
+import { DashboardService } from '../../services';
 
 enum matSelectedFields {
   daily = 'Daily',
-  weekly = 'Weekly',
-  monthly = 'Monthly'
+  monthly = 'Monthly',
+}
+
+export interface Resumo {
+  diario: [{ x: string; y: number }];
+  mensal: [{ x: string; y: number }];
+  anual: [{ x: string; y: number }];
 }
 
 @Component({
   selector: 'app-use-chart',
   templateUrl: './use-chart.component.html',
-  styleUrls: ['./use-chart.component.scss']
+  styleUrls: ['./use-chart.component.scss'],
 })
 export class UseChartComponent implements OnInit {
-
   public matSelectFields: typeof matSelectedFields = matSelectedFields;
   public selectedMatSelectValue = matSelectedFields.monthly;
 
   series: ApexAxisChartSeries;
   chart: ApexChart;
-  title: ApexTitleSubtitle;
+  xaxis: ApexXAxis;
+  chartColors: any[];
+  dataLabels: ApexDataLabels;
 
-  constructor() { }
+  resumoCadastros: Resumo;
+  resumoAvaliacoes: Resumo;
+  show = false
+
+  constructor(private service: DashboardService) {}
 
   ngOnInit(): void {
-    this.initializaChartOptions();
+    console.log(this.show)
+    this.getResumoAvaliacoesRealizadas();
+    this.getResumoNovosCadastros();
+    
   }
 
-  private initializaChartOptions(): void{
-    // this.title={
-    //   text: 'Hipertensão Arterial'
-    // };
-
-    this.series = [{name: 'normal', data: [10, 3, 18]}]
-    this.chart = {type: 'line', height:'380px'}
+  private async getResumoNovosCadastros(): Promise<void> {
+    await this.service.getResumoNovosCadastros().subscribe(
+      (res) => {
+        this.resumoCadastros = res[0];
+        if (
+          this.resumoCadastros !== undefined &&
+          this.resumoAvaliacoes !== undefined
+        ) {
+          console.log(this.resumoCadastros);
+          this.initializaChartOptions(
+            this.resumoCadastros.mensal,
+            this.resumoAvaliacoes.mensal
+          );
+        }
+      },
+      (err) => console.log(err)
+    );
   }
 
-  public changedMatSelectionValue() {}
+  private async getResumoAvaliacoesRealizadas(): Promise<void> {
+    await this.service.getResumoAvaliaçõesRealizadas().subscribe(
+      (res) => {
+        this.resumoAvaliacoes = res[0];
+      },
+      (err) => console.log(err)
+    );
+  }
+
+  private initializaChartOptions(dadosCadastros, dadosAvaliacoes): void {
+    this.chart = { type: 'line', height: '380px' };
+    this.series = [
+      { name: 'Cadastros', data: dadosCadastros },
+      { name: 'Avaliacoes', data: dadosAvaliacoes },
+    ];
+
+    this.chartColors = [colors.YELLOW, colors.BLUE];
+    this.dataLabels = { enabled: true };
+
+    this.xaxis = {
+      type: 'datetime',
+      labels: {
+        style: {
+          colors: '#4A4A4A',
+          fontSize: '0.875rem',
+          fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
+          fontWeight: 400,
+        },
+      },
+    };
+    this.show = true
+    console.log(this.show)
+  }
+
+  public changedMatSelectionValue() {
+    switch (this.selectedMatSelectValue) {
+      case matSelectedFields.daily:
+        this.series = [
+          { name: 'Cadastros', data: this.resumoCadastros.diario },
+          { name: 'Avaliacoes', data: this.resumoAvaliacoes.diario },
+        ];
+        break;
+      case matSelectedFields.monthly:
+        this.series = [
+          { name: 'Cadastros', data: this.resumoCadastros.mensal },
+          { name: 'Avaliacoes', data: this.resumoAvaliacoes.mensal },
+        ];
+        break;
+    }
+  }
 }
