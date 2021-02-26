@@ -14,7 +14,7 @@
     </mat-select> -->
     </mat-card-title>
     <mat-card-content class="project-stat-content">
-      <apx-chart [series]="series" [chart]="chart" ></apx-chart>
+      <apx-chart *ngIf = 'series' [series]="series" [chart]="chart" ></apx-chart>
     </mat-card-content>
   </mat-card>
 </div>

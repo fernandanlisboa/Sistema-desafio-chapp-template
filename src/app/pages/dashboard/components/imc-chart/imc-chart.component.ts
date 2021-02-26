@@ -27,9 +27,8 @@ export class ImcChartComponent implements OnInit {
 
   constructor(private service: DashboardService) {}
 
-  async ngOnInit(): Promise<void> {
+   ngOnInit(): void {
     this.getResumoImc();
-    this.inicializaChartOptions();
   }
 
   private getResumoImc(): void {

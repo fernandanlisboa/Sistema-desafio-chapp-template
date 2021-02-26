@@ -30,7 +30,6 @@ export class HypertensionChartComponent implements OnInit {
   constructor(private service: DashboardService) {}
 
   ngOnInit(): void {
-    this.inicializaChartOptions();
     this.getResumoHipertensao();
   }
 
@@ -38,7 +37,6 @@ export class HypertensionChartComponent implements OnInit {
     this.service.getResumoHipertensao().subscribe(
       (res) => {
         this.dados = res;
-        console.log(this.dados);
         this.inicializaChartOptions();
       },
       (err) => console.log(err)
