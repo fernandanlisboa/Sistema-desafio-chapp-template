@@ -35,7 +35,7 @@ import { DashboardService } from './services';
 import { HypertensionChartComponent } from './components/hypertension-chart/hypertension-chart.component';
 import { ImcChartComponent } from './components/imc-chart/imc-chart.component';
 import { UseChartComponent } from './components/use-chart/use-chart.component';
-import { TabelaAvaliacoesComponent } from './components/tabela-avaliacoes/tabela-avaliacoes.component';
+
 
 
 @NgModule({
@@ -49,8 +49,7 @@ import { TabelaAvaliacoesComponent } from './components/tabela-avaliacoes/tabela
     SupportRequestsComponent,
     HypertensionChartComponent,
     ImcChartComponent,
-    UseChartComponent,
-    TabelaAvaliacoesComponent
+    UseChartComponent
     // ProjectStatChartComponent
   ],
   imports: [

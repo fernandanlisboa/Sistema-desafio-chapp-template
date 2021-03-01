@@ -36,9 +36,4 @@ export class DashboardService {
     return this.http.get<any>('http://localhost:3000/api/colaboradors', httpOptions)
   }
 
-  public getAvaliacoesColaborador(colabId): Observable<any> {
-    return this.http.get<any>(`http://localhost:3000/api/colaboradors/${colabId}/avaliacoes`, httpOptions)
-  }
-
-
 }

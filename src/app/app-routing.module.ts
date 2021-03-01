@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { DashboardPageComponent } from './pages/dashboard/containers';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import {AuthGuard} from './pages/auth/guards';
+import { TabelaAvaliacoesComponent } from './pages/tabela-avaliacoes/tabela-avaliacoes.component';
 
 const routes: Routes = [
   {
@@ -18,10 +19,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/typography/typography.module').then(m => m.TypographyModule)
   },
   {
-    path: 'tables',
+    path: 'avaliacoes/colaborador/:id',
     pathMatch: 'full',
     canActivate: [AuthGuard],
-    loadChildren: () => import('./pages/tables/tables.module').then(m => m.TablesModule)
+    component: TabelaAvaliacoesComponent
   },
   {
     path: 'notification',

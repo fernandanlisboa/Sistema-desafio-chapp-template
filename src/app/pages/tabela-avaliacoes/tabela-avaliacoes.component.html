@@ -1,0 +1,71 @@
+<app-nav-bar></app-nav-bar>
+<mat-toolbar class="page-header" role="heading">
+  <h1>Detalhes Colaborador</h1>
+</mat-toolbar>
+
+<mat-card *ngIf="this.dataSource.data" class="support-requests">
+  <mat-card-title class="support-requests__header">
+    <h5 class="support-requests__title">Avaliações do Colaborador</h5>
+    <!-- <app-settings-menu></app-settings-menu> -->
+  </mat-card-title>
+
+  <mat-card-content
+    *ngIf="this.ELEMENT_DATA.length > 0; else semAvaliacoes"
+    class="support-requests__content"
+  >
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+      <ng-container matColumnDef="dataHora">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Data e Hora</th>
+        <td mat-cell *matCellDef="let element">{{ element.dataHora }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="pulso">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Pulso</th>
+        <td mat-cell *matCellDef="let element">{{ element.pulso }} Bpm</td>
+      </ng-container>
+
+      <ng-container matColumnDef="pressaoSistolica">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          Pressão Sistólica
+        </th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.pSistolica }} mmHg
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="pressaoDiastolica">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          Pressão Diastólica
+        </th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.pDiastolica }} mmHg
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="hipertensao">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          Classificação Hipertensão
+        </th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.hipertensao }}
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+    <mat-paginator
+      [pageSizeOptions]="[5, 10, 20]"
+      showFirstLastButtons
+    ></mat-paginator>
+  </mat-card-content>
+
+  <ng-template #semAvaliacoes>
+    <mat-card-content  class="support-requests__no-data">
+      Esse colaborador não possui avaliações!
+    </mat-card-content>
+  </ng-template>
+
+</mat-card>
+
+<app-footer></app-footer>

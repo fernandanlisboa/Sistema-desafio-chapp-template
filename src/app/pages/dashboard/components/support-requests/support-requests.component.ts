@@ -43,6 +43,8 @@ export class SupportRequestsComponent {
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
       console.log(res)
-    });
+    },
+    (err) => console.log(err)
+    );
   }
 }

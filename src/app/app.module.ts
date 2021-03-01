@@ -13,17 +13,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { DashboardModule } from './pages/dashboard/dashboard.module';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { AuthModule } from './pages/auth/auth.module';
+import { TabelaAvaliacoesModule } from './pages/tabela-avaliacoes/tabela-avaliacoes.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    NotFoundComponent
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
     SharedModule,
     AuthModule,
     DashboardModule,
+    TabelaAvaliacoesModule,
     BrowserAnimationsModule,
     RouterModule,
     AppRoutingModule,
@@ -31,7 +34,6 @@ import { AuthModule } from './pages/auth/auth.module';
     MatCardModule,
     MatButtonModule,
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
