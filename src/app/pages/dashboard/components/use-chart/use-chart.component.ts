@@ -3,6 +3,7 @@ import {
   ApexAxisChartSeries,
   ApexChart,
   ApexDataLabels,
+  ApexTooltip,
   ApexXAxis,
 } from 'ng-apexcharts';
 import { colors } from 'src/app/consts';
@@ -33,6 +34,7 @@ export class UseChartComponent implements OnInit{
   xaxis: ApexXAxis;
   chartColors: any[];
   dataLabels: ApexDataLabels;
+  tooltip: ApexTooltip;
 
   resumoCadastros: Resumo;
   resumoAvaliacoes: Resumo;
@@ -93,6 +95,7 @@ export class UseChartComponent implements OnInit{
         },
       },
     };
+    this.tooltip = {x:{format: 'MMM'}}
   }
 
   public changedMatSelectionValue() {
@@ -102,12 +105,14 @@ export class UseChartComponent implements OnInit{
           { name: 'Cadastros', data: this.resumoCadastros.diario },
           { name: 'Avaliacoes', data: this.resumoAvaliacoes.diario },
         ];
+        this.tooltip = {x:{format: 'dd MMM'}}
         break;
       case matSelectedFields.monthly:
         this.series = [
           { name: 'Cadastros', data: this.resumoCadastros.mensal },
           { name: 'Avaliacoes', data: this.resumoAvaliacoes.mensal },
         ];
+        this.tooltip = {x:{format: 'MMM'}}
         break;
     }
   }

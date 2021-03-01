@@ -5,6 +5,7 @@ import {
   ApexXAxis,
 } from 'ng-apexcharts';
 import { DashboardService } from '../../services';
+import { colors } from 'src/app/consts';
 
 enum matSelectedFields {
   daily = 'Daily',
@@ -24,6 +25,7 @@ export class HypertensionChartComponent implements OnInit {
   series: ApexAxisChartSeries;
   chart: ApexChart;
   xaxis: ApexXAxis;
+  chartColors: any[];
 
   dados: [any];
 
@@ -46,7 +48,8 @@ export class HypertensionChartComponent implements OnInit {
   private inicializaChartOptions(): void {
     this.series = [{ name: 'Colaboradores', data: this.dados }];
     this.chart = { type: 'area', height: '260' };
-    this.xaxis = {labels:{rotate: -18}}
+    this.xaxis = {labels:{rotate: -18, rotateAlways: true}}
+    this.chartColors = [colors.PINK];
   }
 
   public changedMatSelectionValue() {}
