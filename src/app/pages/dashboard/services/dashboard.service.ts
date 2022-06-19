@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { environment } from '../../../../environments/environment';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -17,23 +18,23 @@ export class DashboardService {
   constructor(private http: HttpClient) { }
 
   public getResumoImc(): Observable<any> {
-    return this.http.get<any>('http://localhost:3000/api/colaboradors/medidas/resumo/imc', httpOptions)
+    return this.http.get<any>(`${environment.api_colab}/api/colaboradors/medidas/resumo/imc`, httpOptions)
   }
 
   public getResumoHipertensao(): Observable<any> {
-    return this.http.get<any>('http://localhost:3000/api/avaliacaos/resumo/hipertensao', httpOptions)
+    return this.http.get<any>(`${environment.api_avaliativo}/api/avaliacaos/resumo/hipertensao`, httpOptions)
   }
 
   public getResumoNovosCadastros(): Observable<any> {
-    return this.http.get<any>('http://localhost:3000/api/colaboradors/num/cadastros', httpOptions)
+    return this.http.get<any>(`${environment.api_colab}/api/colaboradors/num/cadastros`, httpOptions)
   }
 
   public getResumoAvaliacoesRealizadas(): Observable<any> {
-    return this.http.get<any>('http://localhost:3000/api/avaliacaos/num/realizadas', httpOptions)
+    return this.http.get<any>(`${environment.api_avaliativo}/api/avaliacaos/num/realizadas`, httpOptions)
   }
 
   public getColaboradores(): Observable<any> {
-    return this.http.get<any>('http://localhost:3000/api/colaboradors', httpOptions)
+    return this.http.get<any>(`${environment.api_colab}/api/colaboradors`, httpOptions)
   }
 
 }

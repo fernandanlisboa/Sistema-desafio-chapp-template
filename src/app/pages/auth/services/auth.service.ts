@@ -3,6 +3,7 @@ import { HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
+import { environment } from '../../../../environments/environment';
 
 import { User } from '../models';
 
@@ -21,17 +22,17 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   public login(user): Observable<any> {
-    return this.http.post<any>('http://localhost:3000/api/admins/login', user)
+    return this.http.post<any>(`${environment.api_admin}/api/admins/login`, user)
   }
 
   public sign(user): Observable<any> {
-    return this.http.post<any>('http://localhost:3000/api/admins', user)
+    return this.http.post<any>(`${environment.api_admin}/api/admins`, user)
   }
 
   //ainda precisa ser testado
   public signOut(): Observable<any> {
     localStorage.removeItem('token');
-    return this.http.post<any>('http://localhost:3000/api/admins/logout', null, httpOptions)
+    return this.http.post<any>(`${environment.api_admin}/api/admins/logout`, null, httpOptions)
   }
 
   //parte do template
