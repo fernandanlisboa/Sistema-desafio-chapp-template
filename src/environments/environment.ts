@@ -5,9 +5,9 @@
 export const environment = {
   production: false,
   hmr: false,
-  api_admin: "http://localhost:3000/api",
-  api_avaliativo: "http://localhost:3001/api",
-  api_colab: "http://localhost:3002/api"
+  api_admin: "http://localhost:3000",
+  api_avaliativo: "http://localhost:3001",
+  api_colab: "http://localhost:3002"
 };
 
 /*
