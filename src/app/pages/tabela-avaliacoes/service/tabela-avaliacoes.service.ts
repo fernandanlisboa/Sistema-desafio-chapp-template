@@ -18,7 +18,7 @@ export class TabelaAvaliacoesService {
 
   public getAvaliacoesColaborador(colabId: string): Observable<any> {
     return this.http.get<any>(
-      `${environment.api_colab}/api/colaboradors/${colabId}/avaliacoes`,
+      `${environment.api_avaliativo}/api/avaliacaos?filter={"where":{"colaborador":"${colabId}"}}`,
       httpOptions
     );
   }
